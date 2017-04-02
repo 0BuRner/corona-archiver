@@ -50,7 +50,7 @@ class CoronaArchive:
             f.seek(-1, 1)
 
             # Read data entries
-            self._read_data_stream()
+            self._read_data_idx()
 
             print "Extraction done."
 
@@ -66,7 +66,7 @@ class CoronaArchive:
         revision, = struct.unpack('i', self.stream.read(4))
         self.metadata['revision'] = revision
         if revision != 1:
-            logging.warn("This unpacker is intended for use on Corona Revision 1, it may not work on revision", revision, ".")
+            logging.warn("This unpacker is intended for use on Corona Revision 1, it may not work on revision {}.".format(revision))
 
         # Read data start offset
         data_offset_start, = struct.unpack('i', self.stream.read(4))
@@ -80,7 +80,7 @@ class CoronaArchive:
         dtype, offset, length = struct.unpack('iii', self.stream.read(12))
 
         self.index[offset] = self.stream.read(length)
-        logging.debug(dtype, offset, length, self.index[offset])
+        logging.debug("{} {} {} {}".format(dtype, offset, length, self.index[offset]))
 
         self._read_to_next_entry(self._MAGIC_NUMBER_INDEX, can_read)
 
@@ -91,7 +91,7 @@ class CoronaArchive:
 
         dtype, nxt, length = struct.unpack('iii', self.stream.read(12))
         content = self.stream.read(length)
-        logging.debug(dtype, nxt, length, offset, filename)
+        logging.debug("{} {} {} {} {}".format(dtype, nxt, length, offset, filename))
 
         self._write_data_entry(content, offset if offset else self.stream.tell(), filename)
 
@@ -99,12 +99,12 @@ class CoronaArchive:
             self._read_to_next_entry(self._MAGIC_NUMBER_DATA, can_read)
 
     def _read_data_idx(self):
-        # Read entries by offset values
+        """ Read data entries by index offset values """
         for offset, filename in self.index.items():
             self._read_data_entry(offset, filename, True, True)
 
     def _read_data_stream(self):
-        # Read entries by stream flow
+        """ Read data entries by file stream flow """
         while self.stream.tell() < self.metadata['file_size']:
             self._read_data_entry(None, None, False, True)
 
@@ -124,50 +124,17 @@ class CoronaArchive:
 
         with open(self.__output_dir + new_filename, "wb") as f:
             f.write(content)
-            logging.info("File", new_filename, "extracted to", self.__output_dir)
+            logging.info("File {} extracted to {}".format(new_filename, self.__output_dir))
 
     def __repr__(self):
         return pprint.pformat(vars(self))
 
-# def command_line(sys_args):
-#     parser = argparse.ArgumentParser(description='Corona Archive Packer/Unpacker')
-#     parser.add_argument('--version', action='version', version='%(prog)s ' + MDAP_LIB_VERSION)
-#     parser.add_argument('-d', action='store_true', help='send ANT-SEARCH discovery packet to multicast')
-#     parser.add_argument('-i', metavar='iface_ip', help='the interface used to listen and send MDAP packets')
-#     parser.add_argument('-t', metavar='target', help='the target device (ant_id, ip)')
-#     parser.add_argument('-m', metavar='method', choices=['info', 'exec'], help='the method to call (%(choices)s)')
-#     parser.add_argument('-c', metavar='command', help='the command to execute', nargs='*')
-#     parser.add_argument('-u', metavar='user')
-#     parser.add_argument('-p', metavar='password')
-#     parser.add_argument('-v', '--verbose', action='count', help="add more 'v' for more verbose (up to 3)")
-#
-#     args = parser.parse_args(sys_args)
-#
-#     print ''
-#
-#     if args.verbose:
-#         logging.getLogger().setLevel(__log_levels.get('-' + ('v' * args.verbose), logging.WARNING))
-#
-#     mdap = MDAP(args.i)
-#     if args.d:
-#         mdap.discover()
-#         time.sleep(1)
-#         print(mdap.ants)
-#     mdap.set_target(args.t)
-#     if 'info' == args.m:
-#         mdap.info(args.u, args.p)
-#         time.sleep(1)
-#         print(mdap.ants)
-#     if 'exec' == args.m:
-#         mdap.exec_cmd(' '.join(args.c), args.u, args.p)
-#         time.sleep(1)
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.WARNING, format='%(asctime)s:%(levelname)-8s %(message)s')
 
     archive = CoronaArchive()
-    archive.unpack("c:\\Users\\BuRner\\My Code\\FamilyQuizz\\scrapers\\trivia_quiz\\resource.car", "c:\\Users\\BuRner\\Downloads\\temp1\\")
+    archive.unpack("resource.car", "c:\\Users\\BuRner\\Downloads\\temp1\\")
 
     print archive.metadata
     print archive.index
-    # command_line(sys.argv[1:])
