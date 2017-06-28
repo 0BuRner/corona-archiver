@@ -221,8 +221,10 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.WARNING, format='%(asctime)s:%(levelname)-8s %(message)s')
 
     if len(sys.argv) != 4:
-        print "Usage: corona-archiver.py -p 'input_dir' 'output_file'"
-        exit(1)
+        print "Usage: "
+        print "\tpacking:\tcorona-archiver.py -p 'input_dir' 'output_file'"
+        print "\tunpacking:\tcorona-archiver.py -u 'input_file' 'output_dir'"
+        sys.exit(1)
 
     method = sys.argv[1]
     input = sys.argv[2]
