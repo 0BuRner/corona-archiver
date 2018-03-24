@@ -2,7 +2,9 @@
 
 Python script to help **pack** and **unpack** Corona archive .car file
 
-## Windows binary (.exe)
+## Distribution
+
+### Windows binary (.exe)
 
 https://github.com/0BuRner/corona-archiver/releases
 
@@ -47,3 +49,7 @@ https://github.com/0BuRner/corona-archiver/releases
 ## Others languages
 
 Java : https://github.com/zhuowei/Chromosphere/tree/master/carlib
+
+## LUA Decompiler
+
+https://sourceforge.net/projects/unluac/
