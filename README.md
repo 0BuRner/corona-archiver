@@ -4,7 +4,7 @@ Python script to help **pack** and **unpack** Corona archive .car file
 
 ## Distribution
 
-### Windows binary (.exe)
+#### Windows binary (.exe)
 
 https://github.com/0BuRner/corona-archiver/releases
 
