@@ -50,6 +50,11 @@ https://github.com/0BuRner/corona-archiver/releases
 
 Java : https://github.com/zhuowei/Chromosphere/tree/master/carlib
 
-## LUA Decompiler
+## LUA
 
-https://sourceforge.net/projects/unluac/
+### LUA Decompilers 
+- https://sourceforge.net/projects/unluac/
+- https://github.com/viruscamp/luadec
+
+### LUA Tools
+- http://lua-users.org/wiki/LuaTools
