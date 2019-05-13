@@ -58,3 +58,8 @@ Java : https://github.com/zhuowei/Chromosphere/tree/master/carlib
 
 ### LUA Tools
 - http://lua-users.org/wiki/LuaTools
+
+## Tutorials
+
+### Dissasembling
+- https://medium.com/@ngocnv73/disassembling-a-compiled-lua-module-using-a-questionable-method-f1a38f25fa4a
