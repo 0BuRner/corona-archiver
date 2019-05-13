@@ -47,7 +47,7 @@ class CoronaArchiver:
                 padding_length = self._padding_length(len(filename), 'index')
                 offset = 1337  # temporary writing as data offset is not known yet
                 self.stream.write(struct.pack('iii', self._MAGIC_NUMBER_INDEX, offset, len(filename)))
-                self.stream.write(filename)
+                self.stream.write(filename.encode('utf-8'))
                 self._write_padding(padding_length)
 
             # Update data_offset_start
@@ -77,7 +77,7 @@ class CoronaArchiver:
             # Replace temporary "data_offset" values with final ones
             self._write_finalize(files)
 
-        print "File {} successfully created.".format(output_file)
+        print("File {} successfully created.".format(output_file))
 
     def unpack(self, input_file, output_dir):
         self.__output_dir = output_dir
@@ -103,7 +103,7 @@ class CoronaArchiver:
             # Read data entries
             self._read_data_idx()
 
-            print "Extraction done."
+            print("Extraction done.")
 
     @staticmethod
     def _padding_length(length, type):
@@ -208,7 +208,7 @@ class CoronaArchiver:
         self.stream.seek(-1, 1)
 
     def _write_data_entry(self, content, offset, filename):
-        new_filename = filename
+        new_filename = str(filename, 'utf-8')
         if not filename:
             new_filename = "file-" + str(offset) + ".extracted.lu"
 
@@ -221,9 +221,9 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.WARNING, format='%(asctime)s:%(levelname)-8s %(message)s')
 
     if len(sys.argv) != 4:
-        print "Usage: "
-        print "\tpacking:\tcorona-archiver.py -p 'input_dir' 'output_file'"
-        print "\tunpacking:\tcorona-archiver.py -u 'input_file' 'output_dir'"
+        print("Usage: ")
+        print("\tpacking:\tcorona-archiver.py -p 'input_dir' 'output_file'")
+        print("\tunpacking:\tcorona-archiver.py -u 'input_file' 'output_dir'")
         sys.exit(1)
 
     method = sys.argv[1]
@@ -237,4 +237,4 @@ if __name__ == "__main__":
     elif method == '-u':
         archiver.unpack(input_file=input, output_dir=output)
     else:
-        print 'Invalid method'
+        print("Invalid method")
