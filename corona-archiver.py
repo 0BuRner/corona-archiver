@@ -233,8 +233,8 @@ if __name__ == "__main__":
     archiver = CoronaArchiver()
 
     if method == '-p':
-        archiver.pack(input_dir=input, output_file=output)
+        archiver.pack(input_dir=os.path.join(input, ''), output_file=output)
     elif method == '-u':
-        archiver.unpack(input_file=input, output_dir=output)
+        archiver.unpack(input_file=input, output_dir=os.path.join(output, ''))
     else:
         print("Invalid method")
