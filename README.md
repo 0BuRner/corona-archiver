@@ -48,8 +48,8 @@ https://github.com/0BuRner/corona-archiver/releases
 
 ## Others languages
 
-C++ (official implementation) : https://github.com/coronalabs/corona/blob/83ef32d39e658af276daaa30bfcac4e04f324341/librtt/Rtt_Archive.cpp
-Java : https://github.com/zhuowei/Chromosphere/tree/master/carlib
+- C++ (official implementation) : https://github.com/coronalabs/corona/blob/83ef32d39e658af276daaa30bfcac4e04f324341/librtt/Rtt_Archive.cpp
+- Java : https://github.com/zhuowei/Chromosphere/tree/master/carlib
 
 ## LUA
 
