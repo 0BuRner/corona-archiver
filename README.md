@@ -1,4 +1,4 @@
-# Corona Archiver
+# Corona Archiver | Solar2D Game Engine pack/unpack
 
 Python script to help **pack** and **unpack** Corona archive .car file
 
@@ -55,7 +55,8 @@ https://github.com/0BuRner/corona-archiver/releases
 
 ### LUA Decompilers 
 - https://sourceforge.net/projects/unluac/
-- https://github.com/viruscamp/luadec
+- https://github.com/sztupy/luadec51 (Lua 5.1)
+- https://github.com/viruscamp/luadec (Lua 5.2, 5.3)
 
 ### LUA Tools
 - http://lua-users.org/wiki/LuaTools
@@ -64,3 +65,4 @@ https://github.com/0BuRner/corona-archiver/releases
 
 ### Dissasembling
 - https://medium.com/@ngocnv73/disassembling-a-compiled-lua-module-using-a-questionable-method-f1a38f25fa4a
+- https://platinmods.com/threads/solar2d-former-corona-lab-game-modding-tutorial.121378/ (dissasembling + recompiling)
