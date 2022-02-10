@@ -54,6 +54,7 @@ https://github.com/0BuRner/corona-archiver/releases
 ## LUA
 
 ### LUA Decompilers 
+- https://www.decompiler.com/
 - https://sourceforge.net/projects/unluac/
 - https://github.com/sztupy/luadec51 (Lua 5.1)
 - https://github.com/viruscamp/luadec (Lua 5.2, 5.3)
