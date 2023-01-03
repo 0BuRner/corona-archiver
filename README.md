@@ -12,10 +12,12 @@ https://github.com/0BuRner/corona-archiver/releases
 
 #### Unpacking
 ``` Usage: corona-archiver.py -u 'input_file' 'output_dir' ```
+
 ```example: corona-archiver.py -u /home/0burner/resources.car /home/0burner/decompiled/```
 
 #### Packing
 ``` Usage: corona-archiver.py -p 'input_dir' 'output_file' ```
+
 ```example: corona-archiver.py -p /home/0burner/decompiled/ /home/0burner/new_recompiled.car```
 
 ## File structure
