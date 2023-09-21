@@ -71,4 +71,5 @@ https://github.com/0BuRner/corona-archiver/releases
 ### Dissasembling
 - https://medium.com/@ngocnv73/disassembling-a-compiled-lua-module-using-a-questionable-method-f1a38f25fa4a
 - https://platinmods.com/threads/solar2d-former-corona-lab-game-modding-tutorial.121378/ (dissasembling + recompiling)
+- https://gameguardian.net/forum/topic/19033-day-r-survival/page/43/#comment-135978
 - https://code.hmil.fr/2015/02/00-hacking-funrun2-how-to-reverse-engineer-a-corona-app/
