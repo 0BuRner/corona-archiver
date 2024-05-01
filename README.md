@@ -1,3 +1,7 @@
+![GitHub Release](https://img.shields.io/github/v/release/0burner/corona-archiver)
+![GitHub Issues or Pull Requests](https://img.shields.io/github/issues-pr/0burner/corona-archiver)
+![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/0burner/corona-archiver/total) 
+
 # Corona Archiver | Solar2D Game Engine pack/unpack
 
 Python script to help **pack** and **unpack** Corona archive .car file
