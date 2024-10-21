@@ -82,6 +82,9 @@ class CoronaArchiver:
     def unpack(self, input_file, output_dir):
         self.__output_dir = output_dir
 
+        if not os.path.isdir(self.__output_dir):
+            os.makedirs(self.__output_dir)
+
         with open(input_file, 'rb') as f:
             self.stream = f
 
