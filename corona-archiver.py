@@ -1,4 +1,4 @@
-# !/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding:utf-8 -*-
 import logging
 import os
@@ -82,6 +82,9 @@ class CoronaArchiver:
     def unpack(self, input_file, output_dir):
         self.__output_dir = output_dir
 
+        if not os.path.isdir(self.__output_dir):
+            os.makedirs(self.__output_dir)
+
         with open(input_file, 'rb') as f:
             self.stream = f
 
@@ -107,7 +110,7 @@ class CoronaArchiver:
 
     @staticmethod
     def _padding_length(length, type):
-        """ 
+        """
             Padding to fill multiple of 4 length
             Padding for index entries and data entries are different :
                 - index: if length is multiple of 4, no padding
